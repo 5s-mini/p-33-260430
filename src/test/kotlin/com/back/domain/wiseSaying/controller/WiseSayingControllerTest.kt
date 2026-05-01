@@ -1,12 +1,12 @@
-package wiseSaying
+package com.back.domain.wiseSaying.controller
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
+import wiseSaying.TestRunner
 import kotlin.test.Test
 import kotlin.test.assertContains
 
-class AppTest {
-
+class WiseSayingControllerTest {
     @Test
     @DisplayName("명언 작성")
     fun t1() {
@@ -38,7 +38,7 @@ class AppTest {
         )
         println("result: $result")
 
-        Assertions.assertThat(result)
+        assertThat(result)
             .contains("번호 / 작가 / 명언")
             .contains("----------------------")
             .contains("2 / 작자미상 / 과거에 집착하지 마라.")
@@ -61,7 +61,7 @@ class AppTest {
                 """.trimIndent()
         )
 
-        Assertions.assertThat(out)
+        assertThat(out)
             .contains("1번 명언이 삭제되었습니다.")
             .contains("2 / 작자미상 / 과거에 집착하지 마라.")
             .doesNotContain("1 / 작자미상 / 현재를 사랑하라.")
@@ -81,7 +81,7 @@ class AppTest {
                 """.trimIndent()
         )
 
-        Assertions.assertThat(out)
+        assertThat(out)
             .doesNotContain("1 / 작자미상 / 현재를 사랑하라.")
             .contains("1 / 소크라테스 / 너 자신을 알라")
     }
